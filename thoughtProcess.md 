@@ -1,3 +1,5 @@
 Title: create a h1 that displays the title on the page."etch a sketch".
   -add the title to the webpage.
 
+  create a div, create more with js all the way up to 16x16 and let the user chose what kinda grid they want to use but use flex box to display"for practice".
+
