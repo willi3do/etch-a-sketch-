@@ -4,7 +4,8 @@
 
 // Parent Container
 const gameContainer = document.querySelector("#gameContainer");
-gameContainer.className = "w-screen h-auto bg-stone-400 flex-col text-center";
+gameContainer.className =
+  "w-screen h-auto bg-stone-400 text-center p-0 m-0 flex flex-col items-center justify-center";
 
 // title
 function callTitle() {
@@ -12,16 +13,23 @@ function callTitle() {
   title.textContent = "etch a sketch";
 
   title.className =
-    "bg-orange-400 m-0 p-4 text-green-800 w-full h-100 text-5xl border-4 border-black  ";
+    "bg-orange-400 m-0 p-4 text-green-800 w-full h-100 text-5xl border-4 border-black ";
 
   gameContainer.append(title);
 }
 callTitle();
 
 // grid
-// const block = document.createElement("div");
-// block.className = " bg-blue-700 w-40 h-40";
 
-// block.textContent = " I'm only a square";
+function createBlocks() {
+  for (let b = 0; b < 4; b++) {
+    const block = document.createElement("div");
 
-// gameContainer.append(block);
+    block.textContent = " I'm only a square";
+    block.classList.add("bg-blue-300", "w-32", "h-32");
+
+    gameContainer.append(block);
+  }
+}
+
+createBlocks();
