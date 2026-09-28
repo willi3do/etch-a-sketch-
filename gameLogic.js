@@ -5,7 +5,7 @@
 // Parent Container
 const gameContainer = document.querySelector("#gameContainer");
 gameContainer.className =
-  "w-screen h-auto bg-stone-400 text-center p-0 m-0 flex flex-col items-center justify-center";
+  "w-screen h-auto  text-center p-0 m-0 flex flex-col items-center justify-center";
 
 // title
 function callTitle() {
@@ -19,17 +19,47 @@ function callTitle() {
 }
 callTitle();
 
-// grid
+// Block grid
 
-function createBlocks() {
-  for (let b = 0; b < 4; b++) {
-    const block = document.createElement("div");
+function blockContainer() {
+  const bContainer = document.createElement("div");
 
-    block.textContent = " I'm only a square";
-    block.classList.add("bg-blue-300", "w-32", "h-32");
+  bContainer.textContent = "Grid Container";
+  bContainer.classList.add(
+    "bg-blue-200",
+    "w-full",
+    "h-screen",
+    "border-4",
+    "border-green-600",
+    "flex-col",
+  );
 
-    gameContainer.append(block);
+  function createBlocks(size) {
+    for (let col = 0; col < size; col++) {
+      const block = document.createElement("div");
+      block.textContent = "col";
+      block.classList.add("bg-red-200", "border-4", "flex", "flex-col");
+
+      for (let row = 0; row < size; row++) {
+        const cell = document.createElement("div");
+        cell.textContent = "row";
+        cell.classList.add(
+          "bg-red-300",
+          "border-4",
+          "flex",
+          "flex-row",
+          "w-24",
+        );
+        block.append(cell);
+      }
+
+      bContainer.append(block);
+    }
   }
+
+  createBlocks(2);
+
+  gameContainer.append(bContainer);
 }
 
-createBlocks();
+blockContainer();
