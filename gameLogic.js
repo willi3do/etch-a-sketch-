@@ -26,28 +26,29 @@ function blockContainer() {
 
   bContainer.textContent = "Grid Container";
   bContainer.classList.add(
-    "bg-blue-200",
+    "bg-blue-800",
     "w-full",
     "h-screen",
-    "border-4",
+    "border-2",
     "border-green-600",
+    "flex",
     "flex-col",
   );
 
   function createBlocks(size) {
     for (let col = 0; col < size; col++) {
       const block = document.createElement("div");
-      block.textContent = "col";
-      block.classList.add("bg-red-200", "border-4", "flex", "flex-col");
+      // block.textContent = "col";
+      block.classList.add("flex", "flex-row", "items-center", "justify-center");
 
       for (let row = 0; row < size; row++) {
         const cell = document.createElement("div");
-        cell.textContent = "row";
+        // cell.textContent = "row";
         cell.classList.add(
           "bg-red-300",
-          "border-4",
-          "flex",
-          "flex-row",
+          "border-8",
+          "border-blue-800",
+          "h-24",
           "w-24",
         );
         block.append(cell);
@@ -57,7 +58,7 @@ function blockContainer() {
     }
   }
 
-  createBlocks(2);
+  createBlocks(3);
 
   gameContainer.append(bContainer);
 }
