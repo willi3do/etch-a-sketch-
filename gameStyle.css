@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.cells{
+@apply bg-red-200 border-8 border-blue-900 h-24 w-24;
+}

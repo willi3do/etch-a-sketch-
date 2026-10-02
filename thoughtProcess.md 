@@ -1,5 +1,12 @@
 Title: create a h1 that displays the title on the page."etch a sketch".
   -add the title to the webpage.
 
-  create a div, more with js all the way up to 16x16 and the lowest 4x4. let the user chose what kinda grid they want to use but use flex box to display"for practice". (current step) need a container for the grid.
+  create a div, more with js all the way up to 16x16 and the lowest 4x4. let the user chose what size of grid they want to use but use flex box to display"for practice". (current step) need a container for the grid.
+- each block should have their own space.
+
+set up a hover event so that the color changes when the users enters the filed and goes out of it.
+-get the get the background color to fade in and out. 
+-Adding a new class to the cells.
+-changing the background fade ot a pixilated 
+
 
