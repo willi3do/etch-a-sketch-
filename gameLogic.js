@@ -20,6 +20,7 @@ function callTitle() {
 callTitle();
 
  const sizeBtn = document.createElement("button");
+ 
 
   sizeBtn.textContent = "levels";
   sizeBtn.classList.add(
@@ -31,6 +32,15 @@ callTitle();
    "m-4",
     
   );
+
+  const userInput = sizeBtn.addEventListener("click", () => {
+    const sizeInput = document.createElement("input");
+    // sizeInput.type = "number";
+    // sizeInput.min = 2;
+    // sizeInput.max = 100;
+    // sizeInput.value = 5;
+    console.log(sizeInput.value);
+  });
 
 
 // Block grid
@@ -90,7 +100,7 @@ function blockContainer() {
     }
   }
 
-  createBlocks(5);
+  createBlocks(2);
 
   gameContainer.append(bContainer);
 }
