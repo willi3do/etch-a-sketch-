@@ -5,7 +5,7 @@
 // Parent Container
 const gameContainer = document.querySelector("#gameContainer");
 gameContainer.className =
-  "w-screen h-auto  text-center p-0 m-0 flex flex-col items-center justify-center","box-sizing: border-box;";
+  "w-screen h-auto  text-center p-0 m-0 flex flex-col items-center justify-center";
 
 // title
 function callTitle() {
@@ -18,6 +18,7 @@ function callTitle() {
   gameContainer.append(title);
 }
 callTitle();
+// createBlocks(5);
 
  const sizeBtn = document.createElement("button");
  
@@ -34,15 +35,21 @@ callTitle();
   );
 
   const userInput = sizeBtn.addEventListener("click", () => {
-    const sizeInput = document.createElement("input");
-    // sizeInput.type = "number";
-    // sizeInput.min = 2;
-    // sizeInput.max = 100;
-    // sizeInput.value = 5;
-    const size = prompt("Enter a grid size: (4x4 the smallest size, 16 x16 the max.)");
+    // const sizeInput = document.createElement("input");
+    const size = Number(prompt("Enter a grid size: (4x4 the smallest size, 16 x16 the max.)"));
+
+    if ( size < 4 || size > 16) {
+      alert("Please enter a number between 4 and 16");
+
+      return;
+    }
+   
     console.log(size);
+
+
   });
 
+  // console.log(userInput);
 
 // Block grid
 
@@ -101,7 +108,7 @@ function blockContainer() {
     }
   }
 
-  createBlocks(2);
+  createBlocks(10);
 
   gameContainer.append(bContainer);
 }
