@@ -39,7 +39,8 @@ callTitle();
     // sizeInput.min = 2;
     // sizeInput.max = 100;
     // sizeInput.value = 5;
-    console.log(sizeInput.value);
+    const size = prompt("Enter a grid size: (4x4 the smallest size, 16 x16 the max.)");
+    console.log(size);
   });
 
 
