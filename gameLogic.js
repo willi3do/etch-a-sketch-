@@ -20,7 +20,29 @@ function callTitle() {
 callTitle();
 // createBlocks(5);
 
- const sizeBtn = document.createElement("button");
+
+let sizeBtn = document.createElement("button");
+
+  const userInput = sizeBtn.addEventListener("click",() => {
+    const size = Number(prompt("Enter a grid size: (4x4 the smallest size, 16 x16 the max.)"));
+
+    if ( size < 4 || size > 16) {
+      alert("Please enter a number between 4 and 16");
+
+      return;
+    }
+   
+    console.log(size);
+
+
+  });
+
+  console.log(userInput);
+
+// Block grid
+
+function blockContainer() {
+    sizeBtn = document.createElement("button");
  
 
   sizeBtn.textContent = "levels";
@@ -33,6 +55,10 @@ callTitle();
    "m-4",
     
   );
+  //  const sizeBtn = document.createElement("button");
+ 
+
+
 
   const userInput = sizeBtn.addEventListener("click", () => {
     // const sizeInput = document.createElement("input");
@@ -48,12 +74,6 @@ callTitle();
 
 
   });
-
-  // console.log(userInput);
-
-// Block grid
-
-function blockContainer() {
   const bContainer = document.createElement("div");
  
 
@@ -85,6 +105,7 @@ function blockContainer() {
         "justify-center",
         "text-blue-800",
       );
+
 // Cells blocks
       for (let row = 0; row < size; row++) {
         const cell = document.createElement("div");
@@ -101,6 +122,8 @@ function blockContainer() {
           e.target.classList.replace("bg-red-200", "bg-red-600");
 
         });
+
+        
         block.append(cell);
       }
 
