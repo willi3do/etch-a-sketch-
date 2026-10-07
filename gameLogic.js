@@ -47,12 +47,10 @@ gridLevelBtn.classList.add(
 );
 
 gridLevelBtn.addEventListener("click", () => {
-  const gridSize = Number(
-    prompt("Enter a grid size: (4x4 is the smallest size, 16x16 is the max.)"),
-  );
+  const gridSize = Number(prompt("Enter a grid size: (4-100)"));
 
-  if (gridSize < 4 || gridSize > 16) {
-    alert("Please enter a number between 4 and 16");
+  if (gridSize < 4 || gridSize > 100) {
+    alert("Please enter a number between 4 and 100");
     return;
   }
 
@@ -60,15 +58,18 @@ gridLevelBtn.addEventListener("click", () => {
 });
 
 let gridContainer = document.createElement("div");
+
+gridContainer.classList.add("w-[960px]");
 gameContainer.append(gridLevelBtn);
 
 gameContainer.append(gridContainer);
 
-createBlocks(3);
+createBlocks(64);
 
 // Create cell function
 function createBlocks(size) {
   gridContainer.innerHTML = "";
+  const cellSize = 960 / size;
   for (let col = 0; col < size; col++) {
     const blockContainer = document.createElement("div");
 
@@ -83,13 +84,10 @@ function createBlocks(size) {
     // Cells blocks
     for (let row = 0; row < size; row++) {
       const cell = document.createElement("div");
-      cell.classList.add(
-        "bg-green-600",
-        "border-4",
-        "border-blue-900",
-        "h-24",
-        "w-24",
-      );
+      cell.classList.add("bg-green-600", "border-4", "border-blue-900");
+      cell.style.width = `${cellSize}px`;
+      cell.style.height = `${cellSize}px`;
+
       cell.textContent = "";
 
       cell.addEventListener("mouseenter", (e) => {
