@@ -28,42 +28,50 @@ function callTitle() {
   let title = document.createElement("h1");
   title.textContent = "etch a sketch";
   title.className =
-    "bg-orange-400 m-0 p-0 w-full h-20 text-5xl  border-4 border-black flex items-center justify-center text-black font-bold";
+    "bg-orange-400 m-0 p-0 w-full h-20 text-5xl border-4 border-black flex items-center justify-center text-black font-bold";
   gameContainer.append(title);
 }
 callTitle();
 
 let gridLevelBtn = document.createElement("button");
+
 gridLevelBtn.textContent = "levels";
 gridLevelBtn.classList.add(
   "bg-stone-400",
   "border-4",
   "border-green-600",
-  "w-32",
-  "h-32",
+  "w-auto",
+  "h-10",
   "object-center",
   "m-4",
 );
+
 gridLevelBtn.addEventListener("click", () => {
-  const GridSize = Number(
+  const gridSize = Number(
     prompt("Enter a grid size: (4x4 is the smallest size, 16x16 is the max.)"),
   );
 
-  if (GridSize < 4 || GridSize > 16) {
+  if (gridSize < 4 || gridSize > 16) {
     alert("Please enter a number between 4 and 16");
     return;
   }
 
-  createBlocks(GridSize);
+  createBlocks(gridSize);
 });
+
+let gridContainer = document.createElement("div");
 gameContainer.append(gridLevelBtn);
+
+gameContainer.append(gridContainer);
+
 createBlocks(3);
 
 // Create cell function
 function createBlocks(size) {
+  gridContainer.innerHTML = "";
   for (let col = 0; col < size; col++) {
     const blockContainer = document.createElement("div");
-    // block.textContent = "col";
+
     blockContainer.classList.add(
       "flex",
       "flex-row",
@@ -94,6 +102,6 @@ function createBlocks(size) {
 
       blockContainer.append(cell);
     }
-    gameContainer.append(blockContainer);
+    gridContainer.append(blockContainer);
   }
 }
