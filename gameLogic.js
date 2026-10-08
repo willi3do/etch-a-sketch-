@@ -64,7 +64,7 @@ gameContainer.append(gridLevelBtn);
 
 gameContainer.append(gridContainer);
 
-createBlocks(64);
+createBlocks(4);
 
 // Create cell function
 function createBlocks(size) {
@@ -91,7 +91,17 @@ function createBlocks(size) {
       cell.textContent = "";
 
       cell.addEventListener("mouseenter", (e) => {
-        e.target.classList.add("bg-red-200");
+        function getRandomColor() {
+          const randomNumber = Math.floor(Math.random() * 256);
+
+          return randomNumber;
+        }
+        const red = getRandomColor();
+        const green = getRandomColor();
+        const blue = getRandomColor();
+        const randomColor = `rgb(${red}, ${green}, ${blue})`;
+        getRandomColor();
+        e.target.style.backgroundColor = randomColor;
       });
 
       cell.addEventListener("mouseout", (e) => {
@@ -103,3 +113,6 @@ function createBlocks(size) {
     gridContainer.append(blockContainer);
   }
 }
+
+// console.log(randomColor);
+// getRandomColor();
