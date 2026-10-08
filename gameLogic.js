@@ -46,6 +46,7 @@ gridLevelBtn.classList.add(
   "m-4",
 );
 
+// Question for the user to enter a grid size
 gridLevelBtn.addEventListener("click", () => {
   const gridSize = Number(prompt("Enter a grid size: (4-100)"));
 
@@ -58,15 +59,19 @@ gridLevelBtn.addEventListener("click", () => {
 });
 
 let gridContainer = document.createElement("div");
-
 gridContainer.classList.add("w-[960px]");
 gameContainer.append(gridLevelBtn);
-
 gameContainer.append(gridContainer);
 
+// default grid size
 createBlocks(4);
 
-// Create cell function
+function getRandomColor() {
+  const randomNumber = Math.floor(Math.random() * 256);
+  return randomNumber;
+}
+
+// Create cell blocks
 function createBlocks(size) {
   gridContainer.innerHTML = "";
   const cellSize = 960 / size;
@@ -87,25 +92,24 @@ function createBlocks(size) {
       cell.classList.add("bg-green-600", "border-4", "border-blue-900");
       cell.style.width = `${cellSize}px`;
       cell.style.height = `${cellSize}px`;
-
       cell.textContent = "";
+      let touches = 0;
 
       cell.addEventListener("mouseenter", (e) => {
-        function getRandomColor() {
-          const randomNumber = Math.floor(Math.random() * 256);
-
-          return randomNumber;
-        }
         const red = getRandomColor();
         const green = getRandomColor();
         const blue = getRandomColor();
         const randomColor = `rgb(${red}, ${green}, ${blue})`;
-        getRandomColor();
-        e.target.style.backgroundColor = randomColor;
-      });
+        e.currentTarget.style.backgroundColor = randomColor;
+        console.log(`randomColor`, randomColor);
 
-      cell.addEventListener("mouseout", (e) => {
-        e.target.classList.replace("bg-red-200", "bg-red-600");
+        if (touches < 10) {
+          touches++;
+        }
+
+        cell.style.filter = `brightness(${100 - touches * 10}%)`;
+
+        console.log(`touches`, touches);
       });
 
       blockContainer.append(cell);
@@ -113,6 +117,3 @@ function createBlocks(size) {
     gridContainer.append(blockContainer);
   }
 }
-
-// console.log(randomColor);
-// getRandomColor();
