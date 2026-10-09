@@ -95,7 +95,7 @@ function createBlocks(size) {
       cell.textContent = "";
       let touches = 0;
 
-      cell.addEventListener("mouseenter", (e) => {
+      cell.addEventListener("pointerenter", (e) => {
         const red = getRandomColor();
         const green = getRandomColor();
         const blue = getRandomColor();
